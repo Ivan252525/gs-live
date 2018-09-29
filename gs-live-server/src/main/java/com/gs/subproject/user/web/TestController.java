@@ -14,4 +14,9 @@ public class TestController {
         return ResultUtils.success("aaa");
     }
 
+    @RequestMapping("/info")
+    public BaseResult<String> info() {
+        return ResultUtils.success("info");
+    }
+
 }
