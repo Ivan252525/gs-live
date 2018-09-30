@@ -4,6 +4,7 @@ public enum ErrorInfo {
 
     // 操作性错误
     MISS_PARAM(1001, "参数缺失或参数格式错误"),
+    PATH_NOT_FOUNT(1002, "路径不存在"),
 
     // 业务错误
     USER_NOT_FOUND(2001, "用户不存在"),

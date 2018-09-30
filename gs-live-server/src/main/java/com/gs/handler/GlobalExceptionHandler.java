@@ -11,6 +11,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.NoHandlerFoundException;
 
 /**
  * 全局异常处理
@@ -32,6 +33,18 @@ public class GlobalExceptionHandler {
     public BaseResult handleException(Exception e) {
         logger.error("", e);
         return ResultUtils.error(ErrorInfo.UNKNOWN_ERROR.getCode(), ErrorInfo.UNKNOWN_ERROR.getDesc());
+    }
+
+    /**
+     * 处理404
+     *
+     * @param e
+     * @return
+     */
+    @ExceptionHandler(value = NoHandlerFoundException.class)
+    @ResponseBody
+    public BaseResult handleNoHandlerFoundException(Exception e) {
+        return ResultUtils.error(ErrorInfo.PATH_NOT_FOUNT.getCode(), ErrorInfo.PATH_NOT_FOUNT.getDesc());
     }
 
     /**

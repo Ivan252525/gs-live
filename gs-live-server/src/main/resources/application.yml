@@ -4,9 +4,11 @@ server:
   port: 9090
 
 spring:
+  mvc:
+    throw-exception-if-no-handler-found: true
   datasource:
     name: spring_boot_mybatis
-    url: jdbc:mysql://47.98.144.216:3306/ivan_test?useUnicode=true&characterEncoding=utf-8
+    url: jdbc:mysql://47.98.144.216:3306/ivan_test?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false
     username: root
     password: root
     type: com.alibaba.druid.pool.DruidDataSource # 使用druid 数据源
@@ -21,4 +23,3 @@ mybatis:
   type-aliases-package: com.ivan.subproject.*.domain
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-
