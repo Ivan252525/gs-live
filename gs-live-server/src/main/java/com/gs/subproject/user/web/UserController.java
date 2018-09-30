@@ -44,10 +44,4 @@ public class UserController {
         return ResultUtils.success(userService.listUserInRange(param.getUserIds()));
     }
 
-    @ApiOperation(value = "测试", notes = "测试一次")
-    @PostMapping("/test")
-    public BaseResult<String> test() {
-        return ResultUtils.success("avb");
-    }
-
 }
